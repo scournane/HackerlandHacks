@@ -1,21 +1,21 @@
 export let api = {
-    PURCHASE_MUSIC: `/pay`,
-    GET_ALL_MUSIC: `/music/all`,
-    CREATE_MUSIC: `/music/add`,
-    PLAY_MUSIC: `/play`,
+    PURCHASE_MUSIC: `https://song-store.epiccodewizard2.repl.co/pay`,
+    GET_ALL_MUSIC: `https://song-store.epiccodewizard2.repl.co/music/all`,
+    CREATE_MUSIC: `https://song-store.epiccodewizard2.repl.co/music/add`,
+    PLAY_MUSIC: `https://song-store.epiccodewizard2.repl.co/play`,
     USER_PROFILE: (uid: string) => `
-        /user?uid=${uid}
+    https://song-store.epiccodewizard2.repl.co/user?uid=${uid}
     `,
     PLAYER_PROFILE: (uid: string) => `
-        /player?uid=${uid}
+    https://song-store.epiccodewizard2.repl.co/player?uid=${uid}
     `,
-    GET_LEADERBOARD: `/leaderboard`,
-    FAVORITE: `/favorite`,
+    GET_LEADERBOARD: `https://song-store.epiccodewizard2.repl.co/leaderboard`,
+    FAVORITE: `https://song-store.epiccodewizard2.repl.co/favorite`,
     GET_FAVORITES: (uid: string) => `
-        /favorites?uid=${uid}
+    https://song-store.epiccodewizard2.repl.co/favorites?uid=${uid}
     `,
     GET_MUSIC_PIECE: (mid: string) => `
-        /music/one?mid=${mid}
+    https://song-store.epiccodewizard2.repl.co/music/one?mid=${mid}
     `
 }
 
