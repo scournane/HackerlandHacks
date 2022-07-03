@@ -42,7 +42,7 @@ export default function Favorites() {
                 image={values.cover}
                 mid={values.mid}
                 name={values.name}
-                preview={values.audio}
+                preview={values.preview}
                 user={values.artist}
               />
           )})}

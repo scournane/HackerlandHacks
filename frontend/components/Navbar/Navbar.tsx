@@ -10,7 +10,7 @@ export default function Navbar() {
     return (
         <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
             <div className="flex items-center flex-shrink-0 text-white mr-6">
-                <img height={100} width={100} src='https://media.discordapp.net/attachments/992560938555285628/993011270276108348/Song_Store.png' />
+                <img className='rounded-full shadow-md animate-bounce duration-100 h-12 w-12' src='https://media.discordapp.net/attachments/992560938555285628/993016394893504612/Song_Store_1.png' />
                 <span className="font-semibold text-xl tracking-tight">SongStore</span>
             </div>
             <div className="block lg:hidden">

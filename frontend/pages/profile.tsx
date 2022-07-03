@@ -15,7 +15,7 @@ export default function Profile() {
             name: '',
             artist: '',
             uid: '',
-            cover: 'https://c.tenor.com/UnFx-k_lSckAAAAM/amalie-steiness.gif',
+            cover: '',
             amount: '',
             genre: '',
             mid: '',
@@ -51,19 +51,20 @@ export default function Profile() {
                     <button className="js-change-theme focus:outline-none">🌙</button>
               </div>
               <div className='py-2 px-6'>
-              {profile.music.map((values, index) => {
 
-                    return (
-                        <ProfileCard
-                            key={`music-profile-${index}`}
-                            aid={values.wallet}
-                            image={values.cover}
-                            mid={values.mid}
-                            name={values.name}
-                            preview={values.audio}
-                            user={values.wallet}
-                        />
-                    )})}
+            {profile.music ? profile.music.map((values, index) => {
+
+            return (
+                <ProfileCard
+                    key={`music-profile-${index}`}
+                    aid={values.uid}
+                    image={values.cover}
+                    mid={values.mid}
+                    name={values.name}
+                    preview={values.audio}
+                    user={values.uid}
+                />
+            )}) : <div></div>}
               </div>
               
               </div>
@@ -72,7 +73,7 @@ export default function Profile() {
   )
 }
 
-function ProfileCard({ aid, user, name, image, preview, mid, genre }: { user: string; name: string; image: string, preview: string; mid: string; genre: string; aid: string; }) {
+function ProfileCard({ aid, user, name, image, preview, mid  }: { user: string; name: string; image: string, preview: string; mid: string;  aid: string; }) {
 
     const { Moralis, user: MoralisUser } = useMoralis()
 
@@ -84,15 +85,6 @@ function ProfileCard({ aid, user, name, image, preview, mid, genre }: { user: st
               receiver: aid,
               type: 'native'
             })
-          }
-        
-          function timeStamp(totalSeconds: number) {
-            let hours = Math.floor(totalSeconds / 3600);
-            totalSeconds %= 3600;
-            let minutes = Math.floor(totalSeconds / 60);
-            let seconds = totalSeconds % 60;
-            seconds = Math.round(seconds)
-            return `${minutes}:${seconds}`
           }
           
           async function favorite() {
@@ -110,7 +102,7 @@ function ProfileCard({ aid, user, name, image, preview, mid, genre }: { user: st
 
     return (
       <div className="max-w-sm rounded-lg overflow-hidden shadow-lg">
-          <Image height={5000} width={10000} className="w-full h-1/3" src={image} alt="Sunset in the mountains" />
+          <img height={5000} width={10000} className="w-full h-1/3" src={image} alt="Sunset in the mountains" />
         <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{name}</div>
             <p className="text-gray-700 text-base">
@@ -119,8 +111,7 @@ function ProfileCard({ aid, user, name, image, preview, mid, genre }: { user: st
         </div>
         <div className="px-6 pt-4 pb-2">
             <audio controls>
-                    <source src={preview}>
-                    </source>        
+                    <source src={preview} />        
             </audio>
             <button onClick={() => donate()} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
               Donate

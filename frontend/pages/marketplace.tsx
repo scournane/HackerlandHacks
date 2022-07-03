@@ -55,12 +55,12 @@ export default function Marketplace() {
                         <div key={`song-item-${index}`}>
                             <Card
                                 name={values.name}
-                                user={values.wallet}
+                                user={values.uid}
                                 image={values.cover}
                                 amount={values.price}
                                 mid={values.mid}
                                 preview={values.preview}
-                                aid={values.wallet}
+                                aid={values.uid}
                             />
                         </div>
                     )
